@@ -1,0 +1,16 @@
+.table tr th:nth-child(1), .table tr th:nth-child(2) {
+    width: 38px;
+}
+
+.table tr th:nth-child(3) {
+    text-align: center;
+}
+
+.text-align-center {
+    text-align:center;
+}
+
+.default-layout {
+    margin:15px;
+    padding: 0px;
+}

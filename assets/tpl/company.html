@@ -1,0 +1,55 @@
+<div class="default-layout">
+    <span>我方公司</span>
+
+    <!-- Single button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Action <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-default">
+        搜索
+    </button>
+</div>
+
+
+<!-- 列表 -->
+<div class="panel panel-default default-layout">
+  <div class="panel-heading">
+    <h3 class="panel-title">我方公司维护表</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+        <button type="button" class="btn btn-default" ng-click="add()">追加纪录</button>
+        <button type="button" class="btn btn-default">保存</button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>我方公司</th>
+          </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in company track by $index">
+        <td>{{$index}}</td>
+        <td><input type="checkbox" ng-checked="item.checked"></td>
+        <td class="text-align-center" style="padding-right: 20%;padding-left: 20%;" ng-click="switch($index)">
+            <input ng-blur="blur($index)" type="input" ng-model="item.name" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
