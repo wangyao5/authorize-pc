@@ -1,0 +1,10 @@
+{
+  "name": "cochat-apidoc",
+  "description": "Cochat api doc management",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-ui-router": "~0.3.1",
+    "bootstrap": "3.3.x"
+  }
+}
