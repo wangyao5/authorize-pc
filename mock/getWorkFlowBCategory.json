@@ -1,0 +1,7 @@
+[
+	{"workFlowName":"全部", "BCategory":["框架协议(原主合同)", "采购订单"]},
+	{"workFlowName":"成本类通用合同", "BCategory":["框架协议(原主合同)", "采购订单"]},
+	{"workFlowName":"收入类通用合同", "BCategory":["一次性合同(无固定金额)", "一次性合同(固定金额)"]},
+	{"workFlowName":"供应链采购合同", "BCategory":["战略合作协议", "其他-无金额"]},
+	{"workFlowName":"版权购买合同", "BCategory":["其他-无金额"]}
+]

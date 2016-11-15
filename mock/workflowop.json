@@ -1,0 +1,6 @@
+[
+    {"id":1, "workFlowName":"成本类通用合同", "BCategory":"框架协议(原主合同)", "LCategory":"地产工程"},
+    {"id":2, "workFlowName":"收入类通用合同", "BCategory":"采购订单", "LCategory":"咨询代理"},
+    {"id":3, "workFlowName":"供应链采购合同", "BCategory":"一次性合同(无固定金额)", "LCategory":"技术服务"},
+    {"id":4, "workFlowName":"版权购买合同", "BCategory":"战略合同协议", "LCategory":"强弱电工程"}
+]

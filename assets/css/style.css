@@ -14,3 +14,15 @@
     margin:15px;
     padding: 0px;
 }
+
+.inline {
+	display: inline-block;
+}
+
+/*tr td {
+	border: 1px solid red;
+}*/
+
+tr, tr td {
+	border: 1px solid #c6c6c6;
+}

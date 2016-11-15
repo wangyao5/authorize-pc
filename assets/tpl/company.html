@@ -1,20 +1,8 @@
 <div class="default-layout">
     <span>我方公司</span>
 
-    <!-- Single button -->
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Action <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    </div>
-    <button type="button" class="btn btn-default">
+    <input type="text" placeholder="我方公司查询" ng-model='searchText' ng-init="searchText=''">
+    <button type="button" class="btn btn-default" ng-click="search(searchText)">
         搜索
     </button>
 </div>
@@ -34,19 +22,12 @@
 
   <!-- Table -->
   <table class="table">
-    <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th>我方公司</th>
-          </tr>
-    </thead>
     <tbody>
-      <tr ng-repeat="item in company track by $index">
-        <td>{{$index}}</td>
-        <td><input type="checkbox" ng-checked="item.checked"></td>
+      <tr ng-repeat="item in companyArray track by $index">
+        <td>{{item.index+1}}</td>
+        <td><input type="checkbox" ng-checked="item.checked" ng-if="item.ableSave"></td>
         <td class="text-align-center" style="padding-right: 20%;padding-left: 20%;" ng-click="switch($index)">
-            <input ng-blur="blur($index)" type="input" ng-model="item.name" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
+            <input ng-change="edited($index)" type="input" ng-model="item.name" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
         </td>
       </tr>
     </tbody>

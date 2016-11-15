@@ -1,7 +1,7 @@
 angular.module('app.router', ['ui.router'])
     .config(['$provide', '$stateProvider', '$urlRouterProvider', function ($provide, $stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/company');
+        $urlRouterProvider.otherwise('/wfop');
 
         $stateProvider
             .state('index', {
@@ -13,6 +13,16 @@ angular.module('app.router', ['ui.router'])
                 url: '/company',
                 templateUrl: 'assets/tpl/company.html',
                 controller: 'company'
+            })
+            .state('wf_op', {
+                url: '/wfop',
+                templateUrl: 'assets/tpl/wfop.html',
+                controller: 'wfop'
+            })
+            .state('search', {
+                url: '/search',
+                templateUrl: 'assets/tpl/search.html',
+                controller: 'search'
             });
 
     }]);

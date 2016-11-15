@@ -1,0 +1,77 @@
+<div class="row"><h2 class="text-align-center">流程基础数据维护表<h2></div>
+<div class="row default-layout">
+    <span>流程名称</span>
+    <div class="dropdown inline">
+		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowDropDown" data-toggle="dropdown">
+			{{currentWorkFlowNameDisplay}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowDropDown">
+			<li role="presentation" ng-repeat="item in workFlowNameArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowNameChecked($index)">{{item}}</a></li>
+		</ul>
+	</div>
+	<span>流程大类</span>
+	<div class="dropdown inline">
+		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowBCategoryDropDown" data-toggle="dropdown">
+			{{currentWorkFlowBCategoryDisplay}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowBCategoryDropDown">
+			<li role="presentation" ng-repeat="item in workFlowBCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowBCategoryChecked($index)">{{item}}</a></li>
+		</ul>
+	</div>
+	<span>流程小类</span>
+	<div class="dropdown inline">
+		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowLCategoryDropDown" data-toggle="dropdown">
+			{{currentWorkFlowLCategoryDisplay}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowLCategoryDropDown">
+			<li role="presentation" ng-repeat="item in workFlowLCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowLCategoryChecked($index)">{{item}}</a></li>
+		</ul>
+	</div>
+	<button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowBCategoryDisplay, currentWorkFlowLCategoryDisplay)">搜索</button>
+	<button class="btn btn-default" type="button" ng-click="reset()">重置</button>
+	<button class="btn btn-default" type="button" ng-click="export()">导出</button>
+</div>
+
+<!-- 列表 -->
+<div class="panel panel-default default-layout">
+  <div class="panel-heading">
+    <h3 class="panel-title">流程基础数据维护表</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+        <button type="button" class="btn btn-default" ng-click="add()">追加纪录</button>
+        <button type="button" class="btn btn-default" ng-click="save()">保存</button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+  	<thead>
+  		<tr>
+  			<td>序号</td>
+  			<td>全选</td>
+  			<td>流程名</td>
+  			<td>流程大类</td>
+  			<td>流程小类</td>
+  		</tr>
+  	</thead>
+    <tbody>
+      <tr ng-repeat="item in workFlowOpArray track by $index">
+        <td>{{item.index+1}}</td>
+        <td><input type="checkbox" ng-checked="item.checked" ng-if="item.ableSave"></td>
+        <td ng-click="switch($index)">
+            <input ng-change="edited($index)" type="input" ng-model="item.workFlowName" ng-disable="!item.editer" style="border: 0;text-align: left;">
+        </td>
+        <td ng-click="switch($index)">
+            <input ng-change="edited($index)" type="input" ng-model="item.BCategory" ng-disable="!item.editer" style="border: 0;text-align: left;">
+        </td>
+        <td ng-click="switch($index)">
+            <input ng-change="edited($index)" type="input" ng-model="item.LCategory" ng-disable="!item.editer" style="border: 0;width:100%text-align: left;">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

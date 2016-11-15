@@ -1,4 +1,1 @@
-angular.module('app.service', [])
-	.service('service', ['$http', function($http){
-		
-	}]);
+angular.module('app.service', [])    .service('service', ['$http', function($http){    var publicHttpMehod = function (mehodName, url, data) {            var queryUrl = url;            var httpContnt = {                method: mehodName,                params: data,                url: queryUrl,                headers: {                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'                },                timeout: 60000            };            var deferred = $q.defer();            $http(httpContnt).success(function (data, status, headers, config) {                deferred.resolve(data);            }).error(function (data, status, headers, config) {                deferred.reject(data, status, headers, config);            });            return deferred.promise;        };        return {            var getCompany = function(){            return publicHttpMehod('GET', 'mock/company.json')            }        }    }]);
