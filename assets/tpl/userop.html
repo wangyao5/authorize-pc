@@ -1,0 +1,41 @@
+<div class="row"><h2 class="text-align-center">角色管理<h2></div>
+
+<div class="default-layout">
+  <span>用户</span><input type="text" placeholder="用户查询" ng-model='searchText' ng-init="searchText=''">
+    <button type="button" class="btn btn-default" ng-click="search(searchText)">
+        搜索
+    </button>
+</div>
+
+<!-- 列表 -->
+<div class="panel panel-default default-layout">
+  <div class="panel-heading">
+    <h3 class="panel-title">角色列表</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+        <button type="button" class="btn btn-default" ng-click="addUser()">添加用户</button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <td>账号</td>
+        <td>姓名</td>
+        <td>权限</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in userArray track by $index">
+        <td>{{item.uid}}</td>
+        <td>{{item.name}}</td>
+        <td ng-bind="['财务查询','普通VP', '阿木', '运维人员'][item.permission]"></td>
+        <td><a ng-click="del($index)">[删除]</a><a ng-if="!(item.id>0)" ng-click="save($index)">[保存]</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

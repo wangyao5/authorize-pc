@@ -1,0 +1,7 @@
+[
+	{"id":1, "uid":"uid-zhanglei1","name":"zhanglei1","permission":0},
+	{"id":2, "uid":"uid-zhanglei2","name":"zhanglei2","permission":1},
+	{"id":3, "uid":"uid-zhanglei3","name":"zhanglei3","permission":2},
+	{"id":4, "uid":"uid-zhanglei18","name":"zhanglei18","permission":3},
+	{"uid":"uid-zhanglei18","name":"zhanglei18","permission":3}
+]

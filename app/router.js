@@ -1,13 +1,18 @@
 angular.module('app.router', ['ui.router'])
     .config(['$provide', '$stateProvider', '$urlRouterProvider', function ($provide, $stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/wfop');
+        $urlRouterProvider.otherwise('/authorize');
 
         $stateProvider
             .state('index', {
                 url: '/index',
                 templateUrl: 'assets/tpl/index.html',
                 controller: 'index'
+            })
+            .state('userop', {
+                url: '/userop',
+                templateUrl: 'assets/tpl/userop.html',
+                controller: 'userop'
             })
             .state('company', {
                 url: '/company',
@@ -23,6 +28,11 @@ angular.module('app.router', ['ui.router'])
                 url: '/search',
                 templateUrl: 'assets/tpl/search.html',
                 controller: 'search'
+            })
+            .state('authorize', {
+                url: '/authorize',
+                templateUrl: 'assets/tpl/authorize.html',
+                controller: 'authorize'
             });
 
     }]);

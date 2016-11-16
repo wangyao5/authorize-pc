@@ -1,6 +1,7 @@
 [
-	{"workFlowName":"成本类通用合同", "LCategory":["地产工程", "咨询代理"]},
-	{"workFlowName":"收入类通用合同", "LCategory":["技术服务", "通讯服务"]},
-	{"workFlowName":"供应链采购合同", "LCategory":["强弱电工程", "软件许可协议"]},
-	{"workFlowName":"版权购买合同", "LCategory":["移动配件采购"]}
+	{"workFlowName":"全部", "lCategory":["地产工程", "咨询代理"]},
+	{"workFlowName":"成本类通用合同", "lCategory":["地产工程", "咨询代理"]},
+	{"workFlowName":"收入类通用合同", "lCategory":["技术服务", "通讯服务"]},
+	{"workFlowName":"供应链采购合同", "lCategory":["强弱电工程", "软件许可协议"]},
+	{"workFlowName":"版权购买合同", "lCategory":["移动配件采购"]}
 ]

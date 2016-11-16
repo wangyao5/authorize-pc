@@ -2,6 +2,16 @@
 <div class="row default-layout">
     <span>VP姓名</span>
     <div class="dropdown inline">
+		<button class="btn btn-default dropdown-toggle" type="button" id="vpDropDown" data-toggle="dropdown">
+			{{checkedVp}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="vpDropDown">
+			<li role="presentation" ng-repeat="item in vpArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="vpChecked($index)">{{item}}</a></li>
+		</ul>
+	</div>
+	<span>流程名称</span>
+    <div class="dropdown inline">
 		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowDropDown" data-toggle="dropdown">
 			{{currentWorkFlowNameDisplay}}
 			<span class="caret"></span>
@@ -33,4 +43,31 @@
 	<button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowBCategoryDisplay, currentWorkFlowLCategoryDisplay)">搜索</button>
 	<button class="btn btn-default" type="button" ng-click="reset()">重置</button>
 	<button class="btn btn-default" type="button" ng-click="export()">导出</button>
+</div>
+
+<!-- 列表 -->
+<div class="panel panel-default default-layout">
+  <!-- Table -->
+  <table class="table">
+  	<thead>
+  		<tr>
+  			<td>VP姓名</td>
+  			<td>流程名称</td>
+  			<td>流程大类</td>
+  			<td>流程小类</td>
+  			<td>我方公司</td>
+  			<td>授权金额</td>
+  		</tr>
+  	</thead>
+    <tbody>
+      <tr ng-repeat="item in authorize track by $index">
+        <td>{{item.name}}</td>
+        <td>{{item.workFlowName}}</td>
+        <td>{{item.bCategory}}</td>
+        <td>{{item.lCategory}}</td>
+        <td>{{item.company}}</td>
+        <td>{{item.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

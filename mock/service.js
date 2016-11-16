@@ -21,6 +21,10 @@ angular.module('app.service', [])
         };
 
         return {
+            getUser: function() {
+                return publicHttpMehod('GET', 'mock/allUser.json');
+            },
+
         	getCompany:function(){
         		return publicHttpMehod('GET', 'mock/company.json');
         	},
@@ -45,6 +49,14 @@ angular.module('app.service', [])
             getWorkFlowLCategory: function() {
                 return publicHttpMehod('GET', 'mock/getWorkFlowLCategory.json');
             },
+
+            getVp: function() {
+                return publicHttpMehod('GET', 'mock/vp.json');
+            },
+
+            queryAuthorize: function() {
+                return publicHttpMehod('GET', 'mock/authorizeQuery.json');
+            }
         }
 
 	}]);
