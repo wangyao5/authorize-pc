@@ -40,7 +40,6 @@ angular.module('app.service', [])
         var getObject = function(httppromise) {
             var deferred = $q.defer();
             httppromise.then(function(data){
-                console.log(data);
                 if (data.status == 0) {
                     deferred.resolve(data.object);
                 }
@@ -65,29 +64,33 @@ angular.module('app.service', [])
             },
 
             getWorkFlowOp: function() {
-                var deferred = $q.defer();
                 var promise = httpGet(URL + '/flow/query');
                 return getObject(promise);
             },
 
             getWorkFlowName: function() {
-                return httpGet('mock/getWorkFlowName.json');
+                var promise = httpGet(URL + '/flow/names');
+                return getObject(promise);
             },
 
             getWorkFlowBCategory: function() {
-                return httpGet('mock/getWorkFlowBCategory.json');
+                var promise = httpGet(URL + '/flow/bigs');
+                return getObject(promise);
             },
 
             getWorkFlowLCategory: function() {
-                return httpGet('mock/getWorkFlowLCategory.json');
+                var promise = httpGet(URL + '/flow/lits');
+                return getObject(promise);
             },
 
             getVp: function() {
-                return httpGet('mock/vp.json');
+                var promise = httpGet(URL + '/user/vp');
+                return getObject(promise);
             },
 
             queryAuthorize: function() {
-                return httpGet('mock/authorizeQuery.json');
+                var promise = httpGet(URL + '/auth/query');
+                return getObject(promise);
             }
         }
 

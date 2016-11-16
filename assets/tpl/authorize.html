@@ -1,43 +1,64 @@
 <div class="row"><h2 class="text-align-center">授权信息维护表</h2></div>
-
-
-<!-- List group -->
-<ul class="list-group">
-    <li class="list-group-item">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                
-            </div>
-            <div class="panel-body">
-                <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </div>
+<div class="default-layout"><span>授权人:</span>  <span>阿木</span></div>
+<div class="row default-layout">
+    <span>流程名称</span>
+    <div class="dropdown inline">
+        <button class="btn btn-default dropdown-toggle" type="button" id="workFlowDropDown" data-toggle="dropdown">
+            {{currentWorkFlowNameDisplay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowDropDown">
+            <li role="presentation" ng-repeat="item in workFlowNameArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowNameChecked($index)">{{item}}</a></li>
+        </ul>
+    </div>
+    <span>流程大类</span>
+    <div class="dropdown inline">
+        <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown" data-toggle="dropdown">
+            {{currentWorkFlowbCategoryDisplay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown">
+            <li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
+        </ul>
+    </div>
+    <span>流程小类</span>
+    <div class="dropdown inline">
+        <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown" data-toggle="dropdown">
+            {{currentWorkFlowlCategoryDisplay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown">
+            <li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
+        </ul>
+    </div>
+    <span>我方公司</span>
+    <div class="dropdown inline">
+        <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown" data-toggle="dropdown">
+            {{currentWorkFlowlCategoryDisplay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown">
+            <li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
+        </ul>
+    </div>
+    <button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowbCategoryDisplay, currentWorkFlowlCategoryDisplay)">搜索</button>
+    <button class="btn btn-default" type="button" ng-click="reset()">重置</button>
+    <button class="btn btn-default" type="button" ng-click="export()">导出</button>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" 
+               href="#collapseOne">
+                点击我进行展开，再次点击我进行折叠。第 1 部分
+            </a>
+        </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson 
+            cred nesciunt sapiente ea proident. Ad vegan excepteur butcher 
+            vice lomo.
         </div>
-    </li>
-    <li class="list-group-item">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                
-            </div>
-            <div class="panel-body">
-                <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </div>
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                
-            </div>
-            <div class="panel-body">
-                <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </div>
-        </div>
-    </li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-</ul>
+    </div>
+</div>

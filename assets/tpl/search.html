@@ -7,7 +7,7 @@
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="vpDropDown">
-			<li role="presentation" ng-repeat="item in vpArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="vpChecked($index)">{{item}}</a></li>
+			<li role="presentation" ng-repeat="item in vpArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="vpChecked($index)">{{item.name}}</a></li>
 		</ul>
 	</div>
 	<span>流程名称</span>
@@ -22,25 +22,25 @@
 	</div>
 	<span>流程大类</span>
 	<div class="dropdown inline">
-		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowBCategoryDropDown" data-toggle="dropdown">
-			{{currentWorkFlowBCategoryDisplay}}
+		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown" data-toggle="dropdown">
+			{{currentWorkFlowbCategoryDisplay}}
 			<span class="caret"></span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowBCategoryDropDown">
-			<li role="presentation" ng-repeat="item in workFlowBCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowBCategoryChecked($index)">{{item}}</a></li>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown">
+			<li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
 		</ul>
 	</div>
 	<span>流程小类</span>
 	<div class="dropdown inline">
-		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowLCategoryDropDown" data-toggle="dropdown">
-			{{currentWorkFlowLCategoryDisplay}}
+		<button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown" data-toggle="dropdown">
+			{{currentWorkFlowlCategoryDisplay}}
 			<span class="caret"></span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowLCategoryDropDown">
-			<li role="presentation" ng-repeat="item in workFlowLCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowLCategoryChecked($index)">{{item}}</a></li>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown">
+			<li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
 		</ul>
 	</div>
-	<button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowBCategoryDisplay, currentWorkFlowLCategoryDisplay)">搜索</button>
+	<button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowbCategoryDisplay, currentWorkFlowlCategoryDisplay)">搜索</button>
 	<button class="btn btn-default" type="button" ng-click="reset()">重置</button>
 	<button class="btn btn-default" type="button" ng-click="export()">导出</button>
 </div>
