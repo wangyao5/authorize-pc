@@ -20,7 +20,7 @@ angular.module('app.service', [])
             return deferred.promise;
         };
 
-        var httpPostMehod = function (url, data) {
+        var httpPost = function (url, data) {
             var queryUrl = url;
             var httpContent = {
                 method: 'POST',
@@ -58,9 +58,9 @@ angular.module('app.service', [])
                 return getObject(promise);
         	},
 
-            save:function(companyArray){
-                console.log("save company");
-                console.log(companyArray);
+            saveCompany:function(companyArray){
+                var promise = httpPost(URL + '/company/save', companyArray);
+                return getObject(promise);
             },
 
             getWorkFlowOp: function() {
@@ -80,6 +80,11 @@ angular.module('app.service', [])
 
             getWorkFlowLCategory: function() {
                 var promise = httpGet(URL + '/flow/lits');
+                return getObject(promise);
+            },
+
+            saveWorkFlow: function(workFlwoArray) {
+                var promise = httpPost(URL + '/flow/save', workFlwoArray);
                 return getObject(promise);
             },
 

@@ -16,7 +16,7 @@
   <div class="panel-body">
     <div>
         <button type="button" class="btn btn-default" ng-click="add()">追加纪录</button>
-        <button type="button" class="btn btn-default">保存</button>
+        <button type="button" class="btn btn-default" ng-click="save()">保存</button>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
     <tbody>
       <tr ng-repeat="item in companyArray track by $index">
         <td>{{item.index+1}}</td>
-        <td><input type="checkbox" ng-checked="item.checked" ng-if="item.ableSave"></td>
+        <td><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
         <td class="text-align-center" style="padding-right: 20%;padding-left: 20%;" ng-click="switch($index)">
             <input ng-change="edited($index)" type="input" ng-model="item.name" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
         </td>

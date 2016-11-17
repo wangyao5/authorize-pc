@@ -61,7 +61,7 @@
     <tbody>
       <tr ng-repeat="item in workFlowOpArray track by $index">
         <td>{{item.index+1}}</td>
-        <td><input type="checkbox" ng-checked="item.checked" ng-if="item.ableSave"></td>
+        <td><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
         <td ng-click="switch($index)">
             <input ng-change="edited($index)" type="input" ng-model="item.workFlowName" ng-disable="!item.editer" style="border: 0;text-align: left;">
         </td>
