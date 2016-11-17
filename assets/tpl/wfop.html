@@ -7,7 +7,9 @@
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowDropDown">
-			<li role="presentation" ng-repeat="item in workFlowNameArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowNameChecked($index)">{{item}}</a></li>
+			<li role="presentation" ng-repeat="item in workFlowNameArray track by $index">
+        <a role="menuitem" tabindex="{{$index}}" ng-click="workFlowNameChecked($index)">{{item}}</a>
+      </li>
 		</ul>
 	</div>
 	<span>流程大类</span>
@@ -17,7 +19,9 @@
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown">
-			<li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
+			<li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index">
+        <a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a>
+      </li>
 		</ul>
 	</div>
 	<span>流程小类</span>
@@ -27,7 +31,9 @@
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown">
-			<li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
+			<li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index">
+        <a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a>
+      </li>
 		</ul>
 	</div>
 	<button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowbCategoryDisplay, currentWorkFlowlCategoryDisplay)">搜索</button>
@@ -48,8 +54,8 @@
   </div>
 
   <!-- Table -->
-  <table class="table">
-  	<thead>
+  <table class="table table-list-wfop">
+  	<thead >
   		<tr>
   			<td>序号</td>
   			<td>全选</td>
@@ -63,13 +69,13 @@
         <td>{{item.index+1}}</td>
         <td><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
         <td ng-click="switch($index)">
-            <input ng-change="edited($index)" type="input" ng-model="item.workFlowName" ng-disable="!item.editer" style="border: 0;text-align: left;">
+            <input ng-change="edited($index)" type="input" ng-model="item.workFlowName" ng-disable="!item.editer">
         </td>
         <td ng-click="switch($index)">
-            <input ng-change="edited($index)" type="input" ng-model="item.bCategory" ng-disable="!item.editer" style="border: 0;text-align: left;">
+            <input ng-change="edited($index)" type="input" ng-model="item.bCategory" ng-disable="!item.editer" >
         </td>
         <td ng-click="switch($index)">
-            <input ng-change="edited($index)" type="input" ng-model="item.lCategory" ng-disable="!item.editer" style="border: 0;width:100%text-align: left;">
+            <input ng-change="edited($index)" type="input" ng-model="item.lCategory" ng-disable="!item.editer" >
         </td>
       </tr>
     </tbody>

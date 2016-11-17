@@ -1,2 +1,2 @@
 angular.module('app.constant',[])
-    .constant('URL','http://10.57.129.102/authorize');
+    .constant('URL','http://local.test.lecommons.com:8080/authorize');

@@ -24,9 +24,9 @@
   <table class="table">
     <tbody>
       <tr ng-repeat="item in companyArray track by $index">
-        <td>{{item.index+1}}</td>
-        <td><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
-        <td class="text-align-center" style="padding-right: 20%;padding-left: 20%;" ng-click="switch($index)">
+        <td class="table-list" >{{item.index+1}}</td>
+        <td class="table-list" ><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
+        <td class="text-align-center" ng-click="switch($index)">
             <input ng-change="edited($index)" type="input" ng-model="item.name" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
         </td>
       </tr>
