@@ -45,89 +45,55 @@
     <button class="btn btn-default" type="button" ng-click="reset()">重置</button>
     <button class="btn btn-default" type="button" ng-click="export()">导出</button>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-default" ng-repeat="authorize in authorizeArray track by $index">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" 
-               href="#collapseOne">
-                点击我进行展开，再次点击我进行折叠。第 1 部分
+               href="#collapse{{$index}}">
+                {{authorize.name}}
             </a>
+            <div><span>全部</span><input type="input">元</div>
         </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-        <table class="table table-list-wfop">
+    <div id="collapse{{$index}}" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div>
+                <button type="button" class="btn btn-default" ng-click="add($index)">追加纪录</button>
+                <button type="button" class="btn btn-default" ng-click="save($index)">保存</button>
+            </div>
+        </div>
+        <table class="table table-list-wfop" style="text-align: center;">
             <thead >
-                <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
+                <tr style="background: #eee;">
+                    <td></td>
+                    <td></td>
                     <td>流程大类</td>
                     <td>流程小类</td>
-                </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
-                </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
-                </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
+                    <td>我方公司</td>
+                    <td>金额</td>
                 </tr>
             </thead>
-        </table>
-    </div>
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" 
-               href="#collapseOne1">
-                点击我进行展开，再次点击我进行折叠。第 1 部分
-            </a>
-        </h4>
-    </div>
-    <div id="collapseOne1" class="panel-collapse collapse">
-        <table class="table table-list-wfop">
-            <thead >
-                <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
+            <tbody>
+                <tr ng-repeat="item in authorize.items" class="authorize-tr">
+                    <td>{{item.index + 1}}</td>
+                    <td></td>
+                    <td class="text-align-center" ng-click="switch($index)">
+                        <div class="dropdown inline">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown" data-toggle="dropdown">
+                                {{item.bCategory}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown">
+                                <li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
+                            </ul>
+                        </div>                    
+                        <!-- <span>{{item.bCategory}}</span> -->
+                    </td>
+                    <td>{{item.lCategory}}</td>
+                    <td>{{item.company}}</td>
+                    <td>{{item.amount}}</td>
                 </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
-                </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
-                </tr>
-                 <tr>
-                    <td>序号</td>
-                    <td>全选</td>
-                    <td>流程名</td>
-                    <td>流程大类</td>
-                    <td>流程小类</td>
-                </tr>
-            </thead>
+            </tbody>
         </table>
     </div>
 </div>

@@ -46,3 +46,30 @@ tr, tr td {
     text-align: left;
     width: 100% !important;
 }
+
+.authorize-tr td:nth-child(3) {
+    padding:0px;
+}
+
+.authorize-tr td:nth-child(3) div{
+    width: 100%;
+}
+
+.authorize-tr td:nth-child(3) div button{
+    width: 100%;
+    border-radius: 0;
+}
+
+.caret {
+    float: right;
+    margin-top: 9px;
+}
+
+.panel-title div {
+    float: right;
+    margin-right: 10%;
+}
+
+.panel-title div span {
+    margin-right: 5px;
+}
