@@ -52,7 +52,12 @@
                href="#collapse{{$index}}">
                 {{authorize.name}}
             </a>
-            <div><span>全部</span><input type="input">元</div>
+            <div>
+                <span>全部</span><input type="input">元
+                <button type="button" class="btn btn-default" ng-click="search(searchText)">
+                    确定
+                </button>
+            </div>
         </h4>
     </div>
     <div id="collapse{{$index}}" class="panel-collapse collapse">
@@ -63,7 +68,7 @@
             </div>
         </div>
         <table class="table table-list-wfop" style="text-align: center;">
-            <thead >
+            <thead>
                 <tr style="background: #eee;">
                     <td></td>
                     <td></td>
@@ -79,11 +84,11 @@
                     <td></td>
                     <td class="text-align-center" ng-click="switch($index)">
                         <div class="dropdown inline">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown" data-toggle="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown{{item.index+1+'-'+$index}}" data-toggle="dropdown">
                                 {{item.bCategory}}
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown">
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown{{item.index+1+'-'+$index}}">
                                 <li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
                             </ul>
                         </div>                    

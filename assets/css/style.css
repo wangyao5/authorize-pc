@@ -73,3 +73,7 @@ tr, tr td {
 .panel-title div span {
     margin-right: 5px;
 }
+
+.panel-title div button {
+    vertical-align: middle;
+}
