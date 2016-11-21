@@ -33,11 +33,11 @@
     </div>
     <span>我方公司</span>
     <div class="dropdown inline">
-        <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown" data-toggle="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="myCompany" data-toggle="dropdown">
             {{currentWorkFlowlCategoryDisplay}}
             <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myCompany">
             <li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
         </ul>
     </div>

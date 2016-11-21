@@ -93,9 +93,14 @@ angular.module('app.service', [])
                 return getObject(promise);
             },
 
-            queryAuthorize: function() {
-                var promise = httpGet(URL + '/auth/query');
+            queryAuthorize: function(query) {
+                var promise = httpPost(URL + '/auth/query',query);
                 return getObject(promise);
+            },
+
+            saveAuthorize: function (authorizeArray) {
+                 var promise = httpPost(URL + '/auth/save', authorizeArray);
+                 return getObject(promise);
             }
         }
 
