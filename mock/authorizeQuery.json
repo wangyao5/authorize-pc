@@ -1,5 +1,12 @@
 [
-	{"workFlowName":"成本类通用合同","bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-	{"workFlowName":"成本类通用合同","bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-	{"workFlowName":"成本类通用合同","bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}
+	{"workFlowName":"成本类通用合同", "array":[
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+    },
+    {"workFlowName":"成本类通用合同1", "array":[
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+    }
 ]

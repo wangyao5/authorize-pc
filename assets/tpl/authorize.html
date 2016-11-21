@@ -34,14 +34,14 @@
     <span>我方公司</span>
     <div class="dropdown inline">
         <button class="btn btn-default dropdown-toggle" type="button" id="myCompany" data-toggle="dropdown">
-            {{currentWorkFlowlCategoryDisplay}}
+            {{currentCompanyDisplay}}
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="myCompany">
-            <li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
+            <li role="presentation" ng-repeat="item in companyArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="companyChecked($index)">{{item.name}}</a></li>
         </ul>
     </div>
-    <button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowbCategoryDisplay, currentWorkFlowlCategoryDisplay)">搜索</button>
+    <button class="btn btn-default" type="button" ng-click="search(currentWorkFlowNameDisplay, currentWorkFlowbCategoryDisplay, currentCompanyDisplay)">搜索</button>
     <button class="btn btn-default" type="button" ng-click="reset()">重置</button>
     <button class="btn btn-default" type="button" ng-click="export()">导出</button>
 </div>
@@ -50,11 +50,11 @@
         <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" 
                href="#collapse{{$index}}">
-                {{authorize.name}}
+                {{authorize.workFlowName}}
             </a>
             <div>
                 <span>全部</span><input type="input">元
-                <button type="button" class="btn btn-default" ng-click="search(searchText)">
+                <button type="button" class="btn btn-default" ng-click="setDefVaule(searchText)">
                     确定
                 </button>
             </div>
@@ -79,24 +79,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in authorize.items" class="authorize-tr">
-                    <td>{{item.index + 1}}</td>
+                <tr ng-repeat="item in authorize.array track by $index" class="authorize-tr">
+                    <td>{{$index + 1}}</td>
                     <td></td>
-                    <td class="text-align-center" ng-click="switch($index)">
-                        <div class="dropdown inline">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown{{item.index+1+'-'+$index}}" data-toggle="dropdown">
+                    <td class="text-align-center" ng-click="switch(item)">
+                        <div class="dropdown inline" ng-if="item.edited">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
                                 {{item.bCategory}}
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown{{item.index+1+'-'+$index}}">
-                                <li role="presentation" ng-repeat="item in workFlowbCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowbCategoryChecked($index)">{{item}}</a></li>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown{{$index + 1}}">
+                                <li role="presentation" ng-repeat="option in getbCategoryOptions(authorize.workFlowName) track by $index"><a role="menuitem" tabindex="{{$index}}"
+                                ng-click="changeWorkFlowOption(item, option)">{{option}}</a></li>
                             </ul>
                         </div>                    
-                        <!-- <span>{{item.bCategory}}</span> -->
+                        <span ng-if="!item.edited">{{item.bCategory}}</span>
                     </td>
-                    <td>{{item.lCategory}}</td>
-                    <td>{{item.company}}</td>
-                    <td>{{item.amount}}</td>
+                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.lCategory}}</td>
+                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.company}}</td>
+                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.amount}}</td>
                 </tr>
             </tbody>
         </table>

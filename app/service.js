@@ -94,8 +94,25 @@ angular.module('app.service', [])
             },
 
             queryAuthorize: function(query) {
-                var promise = httpPost(URL + '/auth/query',query);
-                return getObject(promise);
+                // var promise = httpPost(URL + '/auth/query',query);
+                // return getObject(promise);
+                console.log(222)
+                var data = [
+                    {"workFlowName":"成本类通用合同", "array":[
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+                    },
+                    {"workFlowName":"成本类通用合同1", "array":[
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+                    }
+                ];
+                var deferred = $q.defer();
+                deferred.resolve(data);
+                return deferred.promise;
+                // return httpGet('../mock/authorizeQuery.json');
             },
 
             saveAuthorize: function (authorizeArray) {
