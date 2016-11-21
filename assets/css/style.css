@@ -47,7 +47,7 @@ tr, tr td {
     width: 100% !important;
 }
 
-.authorize-tr td:nth-child(3) {
+/*.authorize-tr td:nth-child(3) {
     padding:0px;
 }
 
@@ -58,20 +58,21 @@ tr, tr td {
 .authorize-tr td:nth-child(3) div button{
     width: 100%;
     border-radius: 0;
-}
-
-.caret {
+    padding:14px;
+}*/
+/*
+.caret-list {
     float: right;
     margin-top: 9px;
-}
+}*/
 
 .panel-title div {
     float: right;
-    margin-right: 10%;
+    margin-top: -5px;
 }
 
 .panel-title div span {
-    margin-right: 5px;
+    /*margin-right: 5px;*/
 }
 
 .panel-title div button {
