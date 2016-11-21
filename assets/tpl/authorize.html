@@ -90,14 +90,41 @@
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown{{$index + 1}}">
                                 <li role="presentation" ng-repeat="option in getbCategoryOptions(authorize.workFlowName) track by $index"><a role="menuitem" tabindex="{{$index}}"
-                                ng-click="changeWorkFlowOption(item, option)">{{option}}</a></li>
+                                ng-click="changeWorkFlowbCategoryOption(item, option)">{{option}}</a></li>
                             </ul>
                         </div>                    
                         <span ng-if="!item.edited">{{item.bCategory}}</span>
                     </td>
-                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.lCategory}}</td>
-                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.company}}</td>
-                    <td ng-click="switch(item)" ng-if="!item.edited">{{item.amount}}</td>
+                    <td class="text-align-center" ng-click="switch(item)">
+                        <div class="dropdown inline" ng-if="item.edited">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
+                                {{item.lCategory}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown{{$index + 1}}">
+                                <li role="presentation" ng-repeat="option in getlCategoryOptions(authorize.workFlowName) track by $index"><a role="menuitem" tabindex="{{$index}}"
+                                ng-click="changeWorkFlowlCategoryOption(item, option)">{{option}}</a></li>
+                            </ul>
+                        </div>                    
+                        <span ng-if="!item.edited">{{item.lCategory}}</span>
+                    </td>
+                     <td class="text-align-center" ng-click="switch(item)">
+                        <div class="dropdown inline" ng-if="item.edited">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="companyDropDown{{$index + 1}}" data-toggle="dropdown">
+                                {{item.company}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="companyDropDown{{$index + 1}}">
+                                <li role="presentation" ng-repeat="option in companyArray track by $index"><a role="menuitem" tabindex="{{$index}}"
+                                ng-click="changeCompanyOption(item, option.name)">{{option.name}}</a></li>
+                            </ul>
+                        </div>                    
+                        <span ng-if="!item.edited">{{item.company}}</span>
+                    </td>
+                    <td class="text-align-center" ng-click="switch(item)">
+                        <input ng-change="edited($index)" type="input" ng-model="item.amount" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
+                        
+                    </td>
                 </tr>
             </tbody>
         </table>
