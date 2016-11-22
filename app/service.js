@@ -40,12 +40,13 @@ angular.module('app.service', [])
         var getObject = function(httppromise) {
             var deferred = $q.defer();
             httppromise.then(function(data){
+                console.log(data);
                 if (data.status == 0) {
                     deferred.resolve(data.object);
                 }
-            })
+            });
             return deferred.promise;
-        }
+        };
 
         return {
             getUser: function() {
@@ -94,19 +95,28 @@ angular.module('app.service', [])
             },
 
             queryAuthorize: function(query) {
-                // var promise = httpPost(URL + '/auth/query',query);
+                // var promise;
+                // if (query){
+                //     promise = httpPost(URL + '/auth/query',query);
+                // } else {
+                //     promise = httpPost(URL + '/auth/query');
+                // }
+                //
                 // return getObject(promise);
-                console.log(222)
                 var data = [
-                    {"workFlowName":"成本类通用合同", "array":[
+                    {"workFlowName":"成本类通用合同", "amount":"4000",
+                     "auth":[
                         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
                         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}
+                     ]
                     },
-                    {"workFlowName":"成本类通用合同1", "array":[
+                    {"workFlowName":"成本类通用合同1", "amount":5000,
+                     "auth":[
                         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
                         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}]
+                        {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}
+                      ]
                     }
                 ];
                 var deferred = $q.defer();

@@ -1,5 +1,5 @@
 <div class="row"><h2 class="text-align-center">授权信息维护表</h2></div>
-<div class="default-layout"><span>授权人:</span>  <span>阿木</span></div>
+<div class="default-layout"><span>授权人:</span>  <span ng-bind="userName"></span></div>
 <div class="row default-layout">
     <span>流程名称</span>
     <div class="dropdown inline">
@@ -53,8 +53,8 @@
                 {{authorize.workFlowName}}
             </a>
             <div>
-                <span>全部</span><input type="input">元
-                <button type="button" class="btn btn-default" ng-click="setDefVaule(searchText)">
+                <span>全部</span><input type="input" ng-model="authorize.amount">元
+                <button type="button" class="btn btn-default" ng-click="setDefVaule($index)">
                     确定
                 </button>
             </div>
@@ -79,7 +79,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in authorize.array track by $index" class="authorize-tr">
+                <tr ng-repeat="item in authorize.auth track by $index" class="authorize-tr">
                     <td>{{$index + 1}}</td>
                     <td></td>
                     <td class="text-align-center" ng-click="switch(item)">
@@ -98,7 +98,7 @@
                     <td class="text-align-center" ng-click="switch(item)">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
-                                {{item.lCategory}} 
+                                {{item.lCategory}}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown{{$index + 1}}">
