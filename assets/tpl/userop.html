@@ -44,8 +44,14 @@
           <input ng-if="item.edit" ng-change="edited($index)" type="input" ng-model="item.name" style="border: 0;width:100%;">
         </td>
         <td>
-          <span ng-if="!item.edit" ng-bind="['财务查询','普通VP', '阿木', '运维人员'][item.permission]"></span>
-          <input ng-if="item.edit" ng-change="edited($index)" type="input" ng-model="item.permission" style="border: 0;width:100%;">
+
+          <span ng-if="!item.edit" ng-bind="['财务查询','普通VP', '总裁办主任', '运维人员'][item.permission]"></span>
+          <select ng-model="item.permission" ng-if="item.edit">
+            <option value="0" selected = "selected">财务查询</option>
+            <option value="1">普通VP</option>
+            <option value="2">总裁办主任</option>
+            <option value="3">运维人员</option>
+          </select>
         </td>
         <td><a ng-click="del($index)">[删除]</a><a ng-if="!(item.id>0)" ng-click="save($index)">[保存]</a>
         </td>

@@ -40,7 +40,6 @@ angular.module('app.service', [])
         var getObject = function(httppromise) {
             var deferred = $q.defer();
             httppromise.then(function(data){
-                console.log(data);
                 if (data.status == 0) {
                     deferred.resolve(data.object);
                 }
