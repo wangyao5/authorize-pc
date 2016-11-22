@@ -31,8 +31,8 @@
             <li role="presentation" ng-repeat="item in workFlowlCategoryArray track by $index"><a role="menuitem" tabindex="{{$index}}" ng-click="workFlowlCategoryChecked($index)">{{item}}</a></li>
         </ul>
     </div>
-    <span>我方公司</span>
-    <div class="dropdown inline">
+    <span ng-if="role == 2">我方公司</span>
+    <div class="dropdown inline" ng-if="role == 2">
         <button class="btn btn-default dropdown-toggle" type="button" id="myCompany" data-toggle="dropdown">
             {{currentCompanyDisplay}}
             <span class="caret"></span>
@@ -74,7 +74,7 @@
                     <td></td>
                     <td>流程大类</td>
                     <td>流程小类</td>
-                    <td>我方公司</td>
+                    <td ng-if="role == 2">我方公司</td>
                     <td>金额</td>
                 </tr>
             </thead>
@@ -108,7 +108,7 @@
                         </div>                    
                         <span ng-if="!item.edited">{{item.lCategory}}</span>
                     </td>
-                     <td class="text-align-center" ng-click="switch(item)">
+                     <td class="text-align-center" ng-click="switch(item)" ng-if="role == 2">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="companyDropDown{{$index + 1}}" data-toggle="dropdown">
                                 {{item.company}}
