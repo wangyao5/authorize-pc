@@ -80,8 +80,8 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in authorize.authorize track by $index" class="authorize-tr">
-                    <td>{{$index + 1}}</td>
-                    <td></td>
+                    <td  ng-init="authorizeIndex = $index">{{$index + 1}}</td>
+                    <td><input type="checkbox" ng-model="item.checked" ng-if="item.ableSave"></td>
                     <td class="text-align-center">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
@@ -89,8 +89,8 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowbCategoryDropDown{{$index + 1}}">
-                                <li role="presentation" ng-repeat="option in getbCategoryOptions(authorize.workFlowName) track by $index"><a role="menuitem" tabindex="{{$index}}"
-                                ng-click="changeWorkFlowbCategoryOption(item, option)">{{option}}</a></li>
+                                <li role="presentation" ng-repeat="option in getbCategoryOptions(authorize.workFlowName)"><a role="menuitem"
+                                ng-click="changeWorkFlowbCategoryOption(authorize.authorize, authorizeIndex, option)">{{option}}</a></li>
                             </ul>
                         </div>                    
                         <span ng-if="!item.edited">{{item.bCategory}}</span>
@@ -102,8 +102,8 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="workFlowlCategoryDropDown{{$index + 1}}">
-                                <li role="presentation" ng-repeat="option in getlCategoryOptions(authorize.workFlowName) track by $index"><a role="menuitem" tabindex="{{$index}}"
-                                ng-click="changeWorkFlowlCategoryOption(item, option)">{{option}}</a></li>
+                                <li role="presentation" ng-repeat="option in getlCategoryOptions(authorize.workFlowName)"><a role="menuitem"
+                                ng-click="changeWorkFlowlCategoryOption(authorize.authorize, authorizeIndex, option)">{{option}}</a></li>
                             </ul>
                         </div>                    
                         <span ng-if="!item.edited">{{item.lCategory}}</span>
@@ -115,14 +115,14 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="companyDropDown{{$index + 1}}">
-                                <li role="presentation" ng-repeat="option in companyArray track by $index"><a role="menuitem" tabindex="{{$index}}"
-                                ng-click="changeCompanyOption(item, option.name)">{{option.name}}</a></li>
+                                <li role="presentation" ng-repeat="option in companyArray"><a role="menuitem"
+                                ng-click="changeCompanyOption(authorize.authorize, authorizeIndex, option.name)">{{option.name}}</a></li>
                             </ul>
                         </div>                    
                         <span ng-if="!item.edited">{{item.company}}</span>
                     </td>
                     <td class="text-align-center">
-                        <input ng-change="edited($index)" type="input" ng-model="item.amount" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
+                        <input ng-change="amountChanged(authorize.authorize, authorizeIndex)" type="input" ng-model="item.amount" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
                     </td>
                 </tr>
             </tbody>
