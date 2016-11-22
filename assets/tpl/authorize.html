@@ -79,10 +79,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in authorize.auth track by $index" class="authorize-tr">
+                <tr ng-repeat="item in authorize.authorize track by $index" class="authorize-tr">
                     <td>{{$index + 1}}</td>
                     <td></td>
-                    <td class="text-align-center" ng-click="switch(item)">
+                    <td class="text-align-center">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="workFlowbCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
                                 {{item.bCategory}}
@@ -95,7 +95,7 @@
                         </div>                    
                         <span ng-if="!item.edited">{{item.bCategory}}</span>
                     </td>
-                    <td class="text-align-center" ng-click="switch(item)">
+                    <td class="text-align-center">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="workFlowlCategoryDropDown{{$index + 1}}" data-toggle="dropdown">
                                 {{item.lCategory}}
@@ -108,7 +108,7 @@
                         </div>                    
                         <span ng-if="!item.edited">{{item.lCategory}}</span>
                     </td>
-                     <td class="text-align-center" ng-click="switch(item)" ng-if="role == 2">
+                     <td class="text-align-center" ng-if="role == 2">
                         <div class="dropdown inline" ng-if="item.edited">
                             <button class="btn btn-default dropdown-toggle" type="button" id="companyDropDown{{$index + 1}}" data-toggle="dropdown">
                                 {{item.company}}
@@ -121,9 +121,8 @@
                         </div>                    
                         <span ng-if="!item.edited">{{item.company}}</span>
                     </td>
-                    <td class="text-align-center" ng-click="switch(item)">
+                    <td class="text-align-center">
                         <input ng-change="edited($index)" type="input" ng-model="item.amount" ng-disable="!item.editer" style="border: 0;width:100%;text-align: center;">
-                        
                     </td>
                 </tr>
             </tbody>

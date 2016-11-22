@@ -50,19 +50,29 @@ angular.module('app.service', [])
 
         return {
             getUser: function() {
-                var promise = httpGet(URL + '/user/query');
+                var promise = httpGet(URL + '/user/query?search=');
                 return getObject(promise);
             },
 
             saveUser: function (user) {
-                var promise = httpPost(URL + '/user/save', user);
+                var promise = httpPost(URL + '/user/save', [user]);
                 return getObject(promise);
             },
 
-        	getCompany:function(){
+            searchUser: function (queryText) {
+                var promise = httpGet(URL + '/user/query?search='+queryText);
+                return getObject(promise);
+            },
+
+            delUser: function (id) {
+                var promise = httpGet(URL + '/user/del/'+id);
+                return getObject(promise);
+            },
+
+            getCompany:function(){
                 var promise = httpGet(URL + '/company/query');
                 return getObject(promise);
-        	},
+            },
 
             saveCompany:function(companyArray){
                 var promise = httpPost(URL + '/company/save', companyArray);
@@ -104,30 +114,21 @@ angular.module('app.service', [])
                 if (query){
                     promise = httpPost(URL + '/auth/query',query);
                 } else {
-                    promise = httpPost(URL + '/auth/query');
+                    promise = httpPost(URL + '/auth/query', {});
                 }
 
                 return getObject(promise);
-                // var data = [
-                //     {"workFlowName":"成本类通用合同", "amount":"4000",
-                //      "auth":[
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}
-                //      ]
-                //     },
-                //     {"workFlowName":"成本类通用合同1", "amount":5000,
-                //      "auth":[
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"},
-                //         {"bCategory":"框架协议(原主合同)","lCategory":"地产工程","company":"乐视网","amount":"5000000"}
-                //       ]
-                //     }
-                // ];
-                // var deferred = $q.defer();
-                // deferred.resolve(data);
-                // return deferred.promise;
-                // return httpGet('../mock/authorizeQuery.json');
+            },
+
+            searchAuthorize: function(query) {
+                var promise;
+                if (query){
+                    promise = httpPost(URL + '/auth/search',query);
+                } else {
+                    promise = httpPost(URL + '/auth/search', {});
+                }
+
+                return getObject(promise);
             },
 
             saveAuthorize: function (authorizeArray) {
@@ -136,4 +137,4 @@ angular.module('app.service', [])
             }
         }
 
-	}]);
+    }]);
